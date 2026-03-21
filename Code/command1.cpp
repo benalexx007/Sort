@@ -1,25 +1,48 @@
 #include "library.h"
-void command1(function<int(int [], int n, int mode)> algo, string File, string output_para){
-    double time = 0; 
-    int comp = 0;
+
+void command1(string algo_name, function<int(int [], int)> algo, string File, string output_para) {
+    cout << "ALGORITHM MODE\n";
+    cout << "Algorithm: " << algo_name << '\n';
+    cout << "Input file: " << File << '\n';
+
+    // Đọc file input
     fstream fin(File, ios::in);
+    if (!fin) {
+        cout << "Cannot open file!\n";
+        return;
+    }
     int n;
     fin >> n;
     int* a = new int[n];
-    for(int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++) {
         fin >> a[i];
+    }
     fin.close();
+
+    cout << "Input size: " << n << '\n';
+    cout << "-------------------------\n";
+
+    // Bắt đầu tính thời gian và số phép so sánh
     auto start = chrono::high_resolution_clock::now();
-    comp = algo(a, n, 0);
+    int comp = algo(a, n);
     auto stop = chrono::high_resolution_clock::now();
     double duration = chrono::duration<double, milli>(stop - start).count();
-    cout << "Input File: " + File + '\n';
-    cout << "Input size: " << n << '\n';
-    output(output_para, {time, 0}, {comp, 0}, 0);
-    fstream fout("../output.txt", ios::out);
+
+    // In theo tham số output_para
+    if (output_para == "-time" || output_para == "-both") {
+        cout << "Running time (if required): " << duration << " ms\n";
+    }
+    if (output_para == "-comp" || output_para == "-both") {
+        cout << "Comparisions (if required): " << comp << '\n';
+    }
+
+    // Ghi mảng đã sắp xếp ra file output.txt
+    fstream fout("output.txt", ios::out);
     fout << n << '\n';
-    for(int i = 0; i < n; i++)
-        fout << a[i];
+    for (int i = 0; i < n; i++) {
+        fout << a[i] << (i == n - 1 ? "" : " "); // Các phần tử cách nhau bởi khoảng trắng
+    }
     fout.close();
+
     delete[] a;
 }

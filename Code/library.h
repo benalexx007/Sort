@@ -14,30 +14,25 @@
 
 using namespace std;
 
-int selection (int a[], int n, int mode);
-int insertion (int a[], int n, int mode);
-int bin_insertion (int a[], int n, int mode);
-int bubble (int a[], int n, int mode);
-int shaker (int a[], int n, int mode);
-int shell (int a[], int n, int mode);
-int heap (int a[], int n, int mode);
-int quick (int a[], int n, int mode);
-int counting (int a[], int n, int mode);
-int radix (int a[], int n, int mode);
-int flash (int a[], int n, int mode);
+// Bỏ biến mode
+int selection (int a[], int n);
+int insertion (int a[], int n);
+int bin_insertion (int a[], int n);
+int bubble (int a[], int n);
+int shaker (int a[], int n);
+int shell (int a[], int n);
+int heap (int a[], int n);
+int Merge (int a[], int n); // Thêm merge
+int quick (int a[], int n);
+int counting (int a[], int n);
+int radix (int a[], int n);
+int flash (int a[], int n);
 
-int output (string para, pair<double, double> time, pair<int, int> comp, bool mode){
-    cout<<"-------------------------\n";
-    if(para == "-time" || para == "-both")
-        cout << "Running time: " << time.first << " ms" << (mode ? (" | " + to_string(time.second) + " ms"): "")<<'\n';
-    if(para == "-both" || para == "-comp")
-        cout << "Comparisions: " << comp.first << " comparisons" <<(mode ? (" | " + to_string(comp.second) +" comparisons"): "")<<'\n';
-}
-
-void command1(function<int(int [], int n, int mode)> algo, string File, string output_para);
-void command2(function<int(int [], int n, int mode)> algo, int Size, int order, string output_para);
-void command3(function<int(int [], int n, int mode)> algo, int Size, string output_para);
-void command4(function<int(int [], int n, int mode)> algo1, function<int(int [], int n, int mode)> algo2, string File);
-void command5(function<int(int [], int n, int mode)> algo1, function<int(int [], int n, int mode)> algo2, int Size, int order);
+// Cập nhật lại parameters cho các command để nhận đúng tên thuật toán
+void command1(string algo_name, function<int(int [], int)> algo, string File, string output_para);
+void command2(string algo_name, function<int(int [], int)> algo, int Size, int order, string order_name, string output_para);
+void command3(string algo_name, function<int(int [], int)> algo, int Size, string output_para);
+void command4(string algo_name1, string algo_name2, function<int(int [], int)> algo1, function<int(int [], int)> algo2, string File);
+void command5(string algo_name1, string algo_name2, function<int(int [], int)> algo1, function<int(int [], int)> algo2, int Size, int order, string order_name);
 
 #endif
