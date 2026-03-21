@@ -10,6 +10,7 @@
 #include <chrono>
 #include <functional>
 #include <iostream>
+#include "DataGenerator.cpp"
 
 using namespace std;
 
@@ -34,9 +35,9 @@ int output (string para, pair<double, double> time, pair<int, int> comp, bool mo
 }
 
 void command1(function<int(int [], int n, int mode)> algo, string File, string output_para);
-void command2(function<int(int [], int n, int mode)> algo, int Size, string order, string output_para);
+void command2(function<int(int [], int n, int mode)> algo, int Size, int order, string output_para);
 void command3(function<int(int [], int n, int mode)> algo, int Size, string output_para);
 void command4(function<int(int [], int n, int mode)> algo1, function<int(int [], int n, int mode)> algo2, string File);
-void command5(function<int(int [], int n, int mode)> algo1, function<int(int [], int n, int mode)> algo2, int Size, string order);
+void command5(function<int(int [], int n, int mode)> algo1, function<int(int [], int n, int mode)> algo2, int Size, int order);
 
 #endif

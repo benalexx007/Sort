@@ -1,4 +1,4 @@
-#include "Code/process.h"
+#include "Code/library.h"
 using namespace std;
 
 int main(int argc, char* argv[]){
@@ -15,16 +15,16 @@ int main(int argc, char* argv[]){
         {"radix", radix},
         {"flash", flash}
     };
-    bool isNumber = [](string s){
-        return all_of(s.begin(), s.end(), [](unsigned char c){ return isdigit(c); });
-    };
-    bool isTXT = [](string s){
-        return s.substr(s.size() - 4) == ".txt";
+    unordered_map<string, int> order {
+        {"-rand", 0},
+        {"-sorted", 1},
+        {"-rev", 2},
+        {"-nsorted", 3}
     };
     if(argv[1] == "-a"){
         cout<<"ALGORRITHM MODE\n";
         if(argc == 6)
-            command2(algorithms[argv[2]], stoi(argv[3]), argv[4], argv[5]);
+            command2(algorithms[argv[2]], stoi(argv[3]), order[argv[4]], argv[5]);
         else{
             if(((string) argv[3]).substr(((string) argv[3]).size() - 4) == ".txt")
                 command1(algorithms[argv[2]], argv[3], argv[4]);
@@ -37,7 +37,7 @@ int main(int argc, char* argv[]){
         if(argc == 5)
             command4(algorithms[argv[2]], algorithms[argv[3]], argv[4]);
         else 
-            command5(algorithms[argv[2]], algorithms[argv[3]], stoi(argv[4]), argv[5]);
+            command5(algorithms[argv[2]], algorithms[argv[3]], stoi(argv[4]), order[argv[5]]);
     }
     return 0;
 }

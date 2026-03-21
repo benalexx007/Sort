@@ -117,7 +117,7 @@ void count_sort_radix(int a[], int n, int exp, int& comp) {
 // --- Main Sorting Functions ---
 
 int selection(int a[], int n, int mode) {
-    cout << "Selection Sort" << (mode ? " | " : "\n");
+    cout << "Algorithm: Selection Sort" << (mode ? " | " : "\n");
     int comp = 0;
     for (int i = 0; comp++, i < n - 1; i++) {
         int min_idx = i;
@@ -134,7 +134,7 @@ int selection(int a[], int n, int mode) {
 }
 
 int insertion(int a[], int n, int mode) {
-    cout << "Insertion Sort" << (mode ? " | " : "\n");
+    cout << "Algorithm: Insertion Sort" << (mode ? " | " : "\n");
     int comp = 0;
     for (int i = 1; comp++, i < n; i++) {
         int key = a[i];
@@ -149,7 +149,7 @@ int insertion(int a[], int n, int mode) {
 }
 
 int bin_insertion(int a[], int n, int mode) {
-    cout << "Binary Insertion Sort" << (mode ? " | " : "\n");
+    cout << "Algorithm: Binary Insertion Sort" << (mode ? " | " : "\n");
     int comp = 0;
     for (int i = 1; comp++, i < n; i++) {
         int key = a[i];
@@ -171,7 +171,7 @@ int bin_insertion(int a[], int n, int mode) {
 }
 
 int bubble(int a[], int n, int mode) {
-    cout << "Bubble Sort" << (mode ? " | " : "\n");
+    cout << "Algorithm: Bubble Sort" << (mode ? " | " : "\n");
     int comp = 0;
     for (int i = 0; comp++, i < n - 1; i++) {
         bool swapped = false;
@@ -187,7 +187,7 @@ int bubble(int a[], int n, int mode) {
 }
 
 int shaker(int a[], int n, int mode) {
-    cout << "Shaker Sort" << (mode ? " | " : "\n");
+    cout << "Algorithm: Shaker Sort" << (mode ? " | " : "\n");
     int comp = 0;
     int left = 0;
     int right = n - 1;
@@ -218,7 +218,7 @@ int shaker(int a[], int n, int mode) {
 }
 
 int shell(int a[], int n, int mode) {
-    cout << "Shell Sort" << (mode ? " | " : "\n");
+    cout << "Algorithm: Shell Sort" << (mode ? " | " : "\n");
     int comp = 0;
     for (int gap = n / 2; comp++, gap > 0; gap /= 2) {
         for (int i = gap; comp++, i < n; i++) {
@@ -234,7 +234,7 @@ int shell(int a[], int n, int mode) {
 }
 
 int heap(int a[], int n, int mode) {
-    cout << "Heap Sort" << (mode ? " | " : "\n");
+    cout << "Algorithm: Heap Sort" << (mode ? " | " : "\n");
     int comp = 0;
     for (int i = n / 2 - 1; comp++, i >= 0; i--) {
         heapify(a, n, i, comp);
@@ -247,21 +247,21 @@ int heap(int a[], int n, int mode) {
 }
 
 int merge(int a[], int n, int mode) {
-    cout << "Merge Sort" << (mode ? " | " : "\n");
+    cout << "Algorithm: Merge Sort" << (mode ? " | " : "\n");
     int comp = 0;
     merge_sort_rec(a, 0, n - 1, comp);
     return comp;
 }
 
 int quick(int a[], int n, int mode) {
-    cout << "Quick Sort" << (mode ? " | " : "\n");
+    cout << "Algorithm: Quick Sort" << (mode ? " | " : "\n");
     int comp = 0;
     quick_rec(a, 0, n - 1, comp);
     return comp;
 }
 
 int counting(int a[], int n, int mode) {
-    cout << "Counting Sort" << (mode ? " | " : "\n");
+    cout << "Algorithm: Counting Sort" << (mode ? " | " : "\n");
     int comp = 0;
     if (comp++, n <= 1) return comp;
     
@@ -298,7 +298,7 @@ int counting(int a[], int n, int mode) {
 }
 
 int radix(int a[], int n, int mode) {
-    cout << "Radix Sort" << (mode ? " | " : "\n");
+    cout << "Algorithm: Radix Sort" << (mode ? " | " : "\n");
     int comp = 0;
     if (comp++, n <= 0) return comp;
     int max_val = get_max(a, n, comp);
@@ -309,7 +309,7 @@ int radix(int a[], int n, int mode) {
 }
 
 int flash(int a[], int n, int mode) {
-    cout << "Flash Sort" << (mode ? " | " : "\n");
+    cout << "Algorithm: Flash Sort" << (mode ? " | " : "\n");
     int comp = 0;
     if (comp++, n <= 1) return comp;
     
