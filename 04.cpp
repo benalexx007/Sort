@@ -2,7 +2,7 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
-    unordered_map<string, function<int(int [], int)>> algorithms {
+    unordered_map<string, function<long long(int [], int)>> algorithms {
         {"selection-sort", selection},
         {"insertion-sort", insertion},
         {"binary-insertion-sort", bin_insertion},
