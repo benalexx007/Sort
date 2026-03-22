@@ -1,6 +1,6 @@
 #include "library.h"
 
-void command1(string algo_name, function<int(int [], int)> algo, string File, string output_para) {
+void command1(string algo_name, function<long long(int [], int)> algo, string File, string output_para) {
     cout << "ALGORITHM MODE\n";
     cout << "Algorithm: " << algo_name << '\n';
     cout << "Input file: " << File << '\n';
@@ -24,7 +24,7 @@ void command1(string algo_name, function<int(int [], int)> algo, string File, st
 
     // Bắt đầu tính thời gian và số phép so sánh
     auto start = chrono::high_resolution_clock::now();
-    int comp = algo(a, n);
+    long long comp = algo(a, n);
     auto stop = chrono::high_resolution_clock::now();
     double duration = chrono::duration<double, milli>(stop - start).count();
 

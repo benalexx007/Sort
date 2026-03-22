@@ -1,6 +1,6 @@
 #include "library.h"
 
-void command3(string algo_name, function<int(int [], int)> algo, int Size, string output_para) {
+void command3(string algo_name, function<long long(int [], int)> algo, int Size, string output_para) {
     cout << "ALGORITHM MODE\n";
     cout << "Algorithm: " << algo_name << '\n';
     cout << "Input size: " << Size << "\n\n";
@@ -17,7 +17,7 @@ void command3(string algo_name, function<int(int [], int)> algo, int Size, strin
         cout << "Input order: " << order_names[i] << "\n";
         cout << "-------------------------\n";
         auto start = chrono::high_resolution_clock::now();
-        int comp = algo(a, Size);
+        long long comp = algo(a, Size);
         auto stop = chrono::high_resolution_clock::now();
         double duration = chrono::duration<double, milli>(stop - start).count();
         if (output_para == "-time" || output_para == "-both") cout << "Running time (if required): " << duration << " ms\n";

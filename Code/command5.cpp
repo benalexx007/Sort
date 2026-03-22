@@ -1,6 +1,6 @@
 #include "library.h"
 
-void command5(string algo_name1, string algo_name2, function<int(int [], int)> algo1, function<int(int [], int)> algo2, int Size, int order, string order_name) {
+void command5(string algo_name1, string algo_name2, function<long long(int [], int)> algo1, function<long long(int [], int)> algo2, int Size, int order, string order_name) {
     cout << "COMPARE MODE\n";
     cout << "Algorithm: " << algo_name1 << " | " << algo_name2 << '\n';
     cout << "Input size: " << Size << '\n';
@@ -20,12 +20,12 @@ void command5(string algo_name1, string algo_name2, function<int(int [], int)> a
     fout.close();
 
     auto start1 = chrono::high_resolution_clock::now();
-    int comp1 = algo1(a1, Size);
+    long long comp1 = algo1(a1, Size);
     auto stop1 = chrono::high_resolution_clock::now();
     double time1 = chrono::duration<double, milli>(stop1 - start1).count();
 
     auto start2 = chrono::high_resolution_clock::now();
-    int comp2 = algo2(a2, Size);
+    long long comp2 = algo2(a2, Size);
     auto stop2 = chrono::high_resolution_clock::now();
     double time2 = chrono::duration<double, milli>(stop2 - start2).count();
 
