@@ -1,8 +1,8 @@
 #include "library.h"
 
 // 1. Selection Sort
-int selection(int a[], int n) {
-    int comp = 0;
+long long selection(int a[], int n) {
+    long long comp = 0;
     for (int i = 0; ++comp && i < n - 1; i++) {
         int min_idx = i;
         for (int j = i + 1; ++comp && j < n; j++) {
@@ -16,8 +16,8 @@ int selection(int a[], int n) {
 }
 
 // 2. Insertion Sort
-int insertion(int a[], int n) {
-    int comp = 0;
+long long insertion(int a[], int n) {
+    long long comp = 0;
     for (int i = 1; ++comp && i < n; i++) {
         int key = a[i];
         int j = i - 1;
@@ -31,8 +31,8 @@ int insertion(int a[], int n) {
 }
 
 // 3. Binary Insertion Sort
-int bin_insertion(int a[], int n) {
-    int comp = 0;
+long long bin_insertion(int a[], int n) {
+    long long comp = 0;
     for (int i = 1; ++comp && i < n; i++) {
         int key = a[i];
         int left = 0, right = i - 1;
@@ -50,8 +50,8 @@ int bin_insertion(int a[], int n) {
 }
 
 // 4. Bubble Sort
-int bubble(int a[], int n) {
-    int comp = 0;
+long long bubble(int a[], int n) {
+    long long comp = 0;
     bool swapped;
     for (int i = 0; ++comp && i < n - 1; i++) {
         swapped = false;
@@ -67,8 +67,8 @@ int bubble(int a[], int n) {
 }
 
 // 5. Shaker Sort
-int shaker(int a[], int n) {
-    int comp = 0;
+long long shaker(int a[], int n) {
+    long long comp = 0;
     bool swapped = true;
     int start = 0, end = n - 1;
     while (++comp && swapped) {
@@ -94,8 +94,8 @@ int shaker(int a[], int n) {
 }
 
 // 6. Shell Sort
-int shell(int a[], int n) {
-    int comp = 0;
+long long shell(int a[], int n) {
+    long long comp = 0;
     for (int gap = n / 2; ++comp && gap > 0; gap /= 2) {
         for (int i = gap; ++comp && i < n; i += 1) {
             int temp = a[i];
@@ -110,7 +110,7 @@ int shell(int a[], int n) {
 }
 
 // 7. Heap Sort
-void heapify(int a[], int n, int i, int& comp) {
+void heapify(int a[], int n, int i, long long& comp) {
     int largest = i;
     int l = 2 * i + 1;
     int r = 2 * i + 2;
@@ -121,8 +121,8 @@ void heapify(int a[], int n, int i, int& comp) {
         heapify(a, n, largest, comp);
     }
 }
-int heap(int a[], int n) {
-    int comp = 0;
+long long heap(int a[], int n) {
+    long long comp = 0;
     for (int i = n / 2 - 1; ++comp && i >= 0; i--) heapify(a, n, i, comp);
     for (int i = n - 1; ++comp && i > 0; i--) {
         swap(a[0], a[i]);
@@ -132,7 +132,7 @@ int heap(int a[], int n) {
 }
 
 // 8. Merge Sort
-void merge_helper(int a[], int l, int m, int r, int& comp) {
+void merge_helper(int a[], int l, int m, int r, long long& comp) {
     int n1 = m - l + 1;
     int n2 = r - m;
     int* L = new int[n1];
@@ -160,21 +160,21 @@ void merge_helper(int a[], int l, int m, int r, int& comp) {
     }
     delete[] L; delete[] R;
 }
-void merge_sort(int a[], int l, int r, int& comp) {
+void merge_sort(int a[], int l, int r, long long& comp) {
     if (++comp && l >= r) return;
     int m = l + (r - l) / 2;
     merge_sort(a, l, m, comp);
     merge_sort(a, m + 1, r, comp);
     merge_helper(a, l, m, r, comp);
 }
-int Merge(int a[], int n) {
-    int comp = 0;
+long long Merge(int a[], int n) {
+    long long comp = 0;
     merge_sort(a, 0, n - 1, comp);
     return comp;
 }
 
 // 9. Quick Sort
-int partition(int a[], int low, int high, int& comp) {
+int partition(int a[], int low, int high, long long& comp) {
     int pivot = a[high];
     int i = (low - 1);
     for (int j = low; ++comp && j <= high - 1; j++) {
@@ -186,22 +186,22 @@ int partition(int a[], int low, int high, int& comp) {
     swap(a[i + 1], a[high]);
     return (i + 1);
 }
-void quick_sort(int a[], int low, int high, int& comp) {
+void quick_sort(int a[], int low, int high, long long& comp) {
     if (++comp && low < high) {
         int pi = partition(a, low, high, comp);
         quick_sort(a, low, pi - 1, comp);
         quick_sort(a, pi + 1, high, comp);
     }
 }
-int quick(int a[], int n) {
-    int comp = 0;
+long long quick(int a[], int n) {
+    long long comp = 0;
     quick_sort(a, 0, n - 1, comp);
     return comp;
 }
 
 // 10. Counting Sort
-int counting(int a[], int n) {
-    int comp = 0;
+long long counting(int a[], int n) {
+    long long comp = 0;
     if (++comp && n <= 1) return comp;
     int max_val = a[0];
     for (int i = 1; ++comp && i < n; i++) {
@@ -221,13 +221,13 @@ int counting(int a[], int n) {
 }
 
 // 11. Radix Sort
-int getMax(int a[], int n, int& comp) {
+int getMax(int a[], int n, long long& comp) {
     int mx = a[0];
     for (int i = 1; ++comp && i < n; i++)
         if (++comp && a[i] > mx) mx = a[i];
     return mx;
 }
-void countSortForRadix(int a[], int n, int exp, int& comp) {
+void countSortForRadix(int a[], int n, int exp, long long& comp) {
     int* output = new int[n];
     int i, count[10] = { 0 };
     for (i = 0; ++comp && i < n; i++) count[(a[i] / exp) % 10]++;
@@ -239,8 +239,8 @@ void countSortForRadix(int a[], int n, int exp, int& comp) {
     for (i = 0; ++comp && i < n; i++) a[i] = output[i];
     delete[] output;
 }
-int radix(int a[], int n) {
-    int comp = 0;
+long long radix(int a[], int n) {
+    long long comp = 0;
     int m = getMax(a, n, comp);
     for (int exp = 1; ++comp && m / exp > 0; exp *= 10) {
         countSortForRadix(a, n, exp, comp);
@@ -249,8 +249,8 @@ int radix(int a[], int n) {
 }
 
 // 12. Flash Sort
-int flash(int a[], int n) {
-    int comp = 0;
+long long flash(int a[], int n) {
+    long long comp = 0;
     if (++comp && n <= 1) return comp;
     int minVal = a[0], maxIdx = 0;
     for (int i = 1; ++comp && i < n; ++i) {
