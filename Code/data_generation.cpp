@@ -1,8 +1,6 @@
 #include "library.h"
 
-using namespace std;
-
-int main() {
+void DataGeneration() {
     int sizes[] = {10000, 30000, 50000, 100000, 300000, 500000};
     int orders[] = {0, 1, 2, 3};
     string names[] = {"rand", "sorted", "rev", "nsorted"};
@@ -21,5 +19,4 @@ int main() {
             delete[] a;
         }
     }
-    return 0;
 }

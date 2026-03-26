@@ -23,7 +23,7 @@ int main(int argc, char* argv[]) {
         {"-rand", "Randomize"}, {"-sorted", "Sorted"}, 
         {"-rev", "Reversed"}, {"-nsorted", "Nearly Sorted"}
     };
-    if (argv[1] == "-a") {
+    if (string(argv[1]) == "-a") {
         string algo = argv[2];
         if (argc == 6)
             command2(algo, algorithms[algo], stoi(argv[3]), order[argv[4]], order_names[argv[4]], argv[5]);
@@ -35,7 +35,7 @@ int main(int argc, char* argv[]) {
             command3(algo, algorithms[algo], stoi(arg3), argv[4]);
         }
     } 
-    else if (argv[1] == "-c") {
+    else if (string(argv[1]) == "-c") {
         string algo1 = argv[2];
         string algo2 = argv[3];
         if (argc == 5)
