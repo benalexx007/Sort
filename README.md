@@ -4,6 +4,8 @@ This repository contains the implementation, benchmarking, and analysis of 12 cl
 
 This project is conducted by **Group 04** for the **Data Structures & Algorithms** course, class **25C11**, Faculty of Information Technology, University of Science (VNU-HCM).
 
+GitHub: https://github.com/benalexx007/Sort
+
 ## Table of Contents
 - [Project Overview](#project-overview)
 - [Compilation Instructions](#compilation-instructions)
@@ -57,11 +59,34 @@ The main goal of this project is to:
 This project uses only the GNU C++ Standard Library.  
 No external dependencies are required.
 
+### Stack Increasing Commands
+
+To run benchmarks with massive stack required (such as `quick-sort` worst case on large input), it is necessary to increase local stack of the running system.
+
+On Cmd: 
+```bash
+doskey g++=g++ -Wl,--stack,268435456 $*.
+```
+
+On PowerShell: 
+```bash
+function g++ { & g++.exe -Wl,--stack,268435456 $args }.
+```
+
+On Unix-style terminal: 
+```bash
+alias g++="g++ -Wl,--stack,268435456".
+```
+
 ### Compile Command
+
+We will use only this command to compile, as per the requirement of the project.
 
 ```bash
 g++ *.cpp -std=c++17 -o 04.exe
 ````
+
+**NOTE:** Some compilers cannot run this command properly. If that's the case, manually expand the `*.cpp` into a list of actual files or change to another compiler.
 
 ## Usage & Commands
 
@@ -148,16 +173,18 @@ Output:
 
 ```text
 .
-├── *.cpp              # Implementation of sorting algorithms
-├── *.h                # Header files
-├── input*.txt         # Generated input datasets
-├── output.txt         # Sorted output
-└── README.md          # Project documentation
+├── README.md              # Project documentation
+├── Report.pdf             # Report documentaion
+└── source/                # Folder contains all codes
+    ├── *.cpp              # Implementation
+    ├── *.h                # Header files
+    ├── input*.txt         # Generated input datasets
+    └── output.txt         # Sorted output
 ```
 
 ## Notes
 
-* All sorting algorithms are implemented from scratch.
+* All code is implemented from scratch.
 * The program is designed for performance comparison and analysis.
 * Ensure input files follow the correct format before execution.
 * Large input sizes may require significant runtime.
