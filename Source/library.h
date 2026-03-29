@@ -20,7 +20,6 @@ void GenerateData(int a[], int n, int dataType);
 
 using namespace std;
 
-// Bỏ biến mode
 long long selection (int a[], int n);
 long long insertion (int a[], int n);
 long long bin_insertion (int a[], int n);
@@ -28,13 +27,12 @@ long long bubble (int a[], int n);
 long long shaker (int a[], int n);
 long long shell (int a[], int n);
 long long heap (int a[], int n);
-long long Merge (int a[], int n); // Thêm merge
+long long Merge (int a[], int n); 
 long long quick (int a[], int n);
 long long counting (int a[], int n);
 long long radix (int a[], int n);
 long long flash (int a[], int n);
 
-// Cập nhật lại parameters cho các command để nhận đúng tên thuật toán
 void command1(string algo_name, function<long long(int [], int)> algo, string File, string output_para);
 void command2(string algo_name, function<long long(int [], int)> algo, int Size, int order, string order_name, string output_para);
 void command3(string algo_name, function<long long(int [], int)> algo, int Size, string output_para);
