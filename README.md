@@ -176,7 +176,7 @@ Output:
 ├── README.md              # Project documentation
 ├── Report.pdf             # Report documentaion
 └── source/                # Folder contains all codes
-    ├── *.cpp              # Implementation
+    ├── *.cpp              # Implementation of algorithms, pipeline, data preparations for experiments
     ├── *.h                # Header files
     ├── input*.txt         # Generated input datasets
     └── output.txt         # Sorted output
